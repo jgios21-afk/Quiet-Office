@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Calibri, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#1F3864" stroke-width="1.5"/></marker></defs>
+<rect width="1200" height="760" fill="#FFFFFF"/>
+<text x="40" y="44" font-size="26" font-weight="bold" fill="#1F3864">Quiet Office — architecture</text>
+<text x="40" y="70" font-size="14" fill="#595959">An autonomous back office on Strands Agents. Runs nightly, surfaces only real decisions.</text>
+
+<!-- Triggers -->
+<rect x="40" y="100" width="220" height="120" rx="10" fill="#F1EFE8" stroke="#888780"/>
+<text x="150" y="126" font-size="14" font-weight="bold" text-anchor="middle" fill="#2C2C2A">Triggers</text>
+<text x="150" y="150" font-size="12" text-anchor="middle" fill="#444441">EventBridge Scheduler (nightly)</text>
+<text x="150" y="170" font-size="12" text-anchor="middle" fill="#444441">Owner: CLI / chat "ask"</text>
+<text x="150" y="190" font-size="12" text-anchor="middle" fill="#444441">Inbound call / email / chat</text>
+<text x="150" y="210" font-size="12" text-anchor="middle" fill="#444441">Owner: decide DEC-0001 approve</text>
+
+<!-- AgentCore runtime container -->
+<rect x="300" y="100" width="860" height="440" rx="16" fill="#EEEDFE" stroke="#534AB7"/>
+<text x="320" y="126" font-size="14" font-weight="bold" fill="#26215C">Amazon Bedrock AgentCore Runtime (optional) — agentcore/app.py</text>
+
+<!-- Office manager -->
+<rect x="330" y="145" width="240" height="70" rx="10" fill="#CECBF6" stroke="#534AB7"/>
+<text x="450" y="172" font-size="14" font-weight="bold" text-anchor="middle" fill="#26215C">Office manager (Strands Agent)</text>
+<text x="450" y="192" font-size="12" text-anchor="middle" fill="#3C3489">agents-as-tools orchestrator</text>
+<text x="450" y="207" font-size="12" text-anchor="middle" fill="#3C3489">owns the decision inbox</text>
+
+<!-- Daily close graph -->
+<rect x="600" y="145" width="530" height="70" rx="10" fill="#CECBF6" stroke="#534AB7"/>
+<text x="865" y="172" font-size="14" font-weight="bold" text-anchor="middle" fill="#26215C">Daily close (Strands Graph)</text>
+<text x="865" y="192" font-size="12" text-anchor="middle" fill="#3C3489">scheduler → receivables → bookkeeper → payables → compliance → digest</text>
+<text x="865" y="207" font-size="12" text-anchor="middle" fill="#3C3489">deterministic order, one owner digest per run</text>
+
+<!-- Specialists -->
+<g font-size="12">
+<rect x="330" y="245" width="125" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56"/><text x="392" y="268" text-anchor="middle" font-weight="bold" fill="#04342C">Scheduler</text><text x="392" y="286" text-anchor="middle" fill="#085041">book, remind,</text><text x="392" y="300" text-anchor="middle" fill="#085041">close events</text>
+<rect x="465" y="245" width="125" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56"/><text x="527" y="268" text-anchor="middle" font-weight="bold" fill="#04342C">Receivables</text><text x="527" y="286" text-anchor="middle" fill="#085041">invoice, ladder,</text><text x="527" y="300" text-anchor="middle" fill="#085041">aging</text>
+<rect x="600" y="245" width="125" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56"/><text x="662" y="268" text-anchor="middle" font-weight="bold" fill="#04342C">Bookkeeper</text><text x="662" y="286" text-anchor="middle" fill="#085041">categorize, match,</text><text x="662" y="300" text-anchor="middle" fill="#085041">month close</text>
+<rect x="735" y="245" width="125" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56"/><text x="797" y="268" text-anchor="middle" font-weight="bold" fill="#04342C">Payables</text><text x="797" y="286" text-anchor="middle" fill="#085041">capture, approve,</text><text x="797" y="300" text-anchor="middle" fill="#085041">pay run</text>
+<rect x="870" y="245" width="125" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56"/><text x="932" y="268" text-anchor="middle" font-weight="bold" fill="#04342C">Receptionist</text><text x="932" y="286" text-anchor="middle" fill="#085041">triage, route,</text><text x="932" y="300" text-anchor="middle" fill="#085041">book intake</text>
+<rect x="1005" y="245" width="125" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56"/><text x="1067" y="268" text-anchor="middle" font-weight="bold" fill="#04342C">Compliance</text><text x="1067" y="286" text-anchor="middle" fill="#085041">renewals, filings,</text><text x="1067" y="300" text-anchor="middle" fill="#085041">tax dates</text>
+</g>
+<text x="730" y="232" font-size="12" text-anchor="middle" fill="#3C3489">Six specialist Strands Agents, each with a narrow @tool set and plain-language job description</text>
+
+<!-- Hooks -->
+<rect x="330" y="335" width="800" height="56" rx="8" fill="#FAECE7" stroke="#993C1D"/>
+<text x="730" y="357" font-size="14" font-weight="bold" text-anchor="middle" fill="#4A1B0C">Strands hooks on every agent</text>
+<text x="730" y="377" font-size="12" text-anchor="middle" fill="#712B13">ApprovalGate: BeforeToolCallEvent cancels money-moving tools unless a human approved  •  AuditTrail: AfterToolCallEvent logs every call</text>
+
+<!-- Tools / rules -->
+<rect x="330" y="410" width="390" height="110" rx="8" fill="#FFFFFF" stroke="#534AB7"/>
+<text x="525" y="433" font-size="14" font-weight="bold" text-anchor="middle" fill="#26215C">Tools (quiet_office/tools/*.py) — 25 @tool functions</text>
+<text x="525" y="455" font-size="12" text-anchor="middle" fill="#3C3489">scheduling · receivables · bookkeeping · payables · reception · compliance</text>
+<text x="525" y="477" font-size="12" text-anchor="middle" fill="#3C3489">rules.py: booking window, buffers, caps, Net-15, reminder ladder,</text>
+<text x="525" y="495" font-size="12" text-anchor="middle" fill="#3C3489">$500 auto-pay limit, category rules, alert thresholds</text>
+<rect x="740" y="410" width="390" height="110" rx="8" fill="#FFFFFF" stroke="#534AB7"/>
+<text x="935" y="433" font-size="14" font-weight="bold" text-anchor="middle" fill="#26215C">Model provider (models.py)</text>
+<text x="935" y="455" font-size="12" text-anchor="middle" fill="#3C3489">Default: Claude on Amazon Bedrock</text>
+<text x="935" y="477" font-size="12" text-anchor="middle" fill="#3C3489">Swappable: Anthropic API, Ollama (local)</text>
+<text x="935" y="495" font-size="12" text-anchor="middle" fill="#3C3489">Scripted model for tests and offline demos</text>
+
+<!-- Store / systems of record -->
+<rect x="300" y="575" width="860" height="80" rx="12" fill="#E6F1FB" stroke="#185FA5"/>
+<text x="730" y="600" font-size="14" font-weight="bold" text-anchor="middle" fill="#042C53">Systems of record (store.py — JSON in the demo; adapters map 1:1 to real systems)</text>
+<text x="730" y="622" font-size="12" text-anchor="middle" fill="#0C447C">Google Calendar / Cal.com  ·  QuickBooks Online  ·  bank feed  ·  Bill.com or Melio  ·  CRM  ·  compliance calendar</text>
+<text x="730" y="642" font-size="12" text-anchor="middle" fill="#0C447C">plus the decision inbox and the audit trail</text>
+
+<!-- Owner -->
+<rect x="40" y="575" width="220" height="80" rx="10" fill="#FAEEDA" stroke="#854F0B"/>
+<text x="150" y="602" font-size="14" font-weight="bold" text-anchor="middle" fill="#412402">Owner</text>
+<text x="150" y="624" font-size="12" text-anchor="middle" fill="#633806">Morning digest + decision inbox</text>
+<text x="150" y="642" font-size="12" text-anchor="middle" fill="#633806">one tap per decision, nothing else</text>
+
+<!-- Arrows -->
+<line x1="260" y1="160" x2="330" y2="180" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="260" y1="140" x2="600" y2="165" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="450" y1="215" x2="450" y2="243" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="865" y1="215" x2="865" y2="243" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="730" y1="309" x2="730" y2="333" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="730" y1="391" x2="730" y2="408" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="525" y1="520" x2="525" y2="573" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="300" y1="615" x2="262" y2="615" stroke="#1F3864" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="281" y="606" font-size="11" text-anchor="middle" fill="#595959">digest</text>
+<line x1="150" y1="575" x2="150" y2="222" stroke="#1F3864" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a)"/>
+<text x="190" y="400" font-size="11" text-anchor="middle" fill="#595959">decisions</text>
+
+<text x="40" y="700" font-size="12" fill="#595959">Flow: triggers → Office manager (interactive) or Daily close Graph (background) → specialists call tools under hooks → systems of record → digest to owner.</text>
+<text x="40" y="720" font-size="12" fill="#595959">The only path from the office to a human is the decision inbox; the only path from a human back is resolve_decision.</text>
+</svg>
